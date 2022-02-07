@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Pharmacie = require('../models/Pharmacie');
 
 // get all pharmacies
-router.get('/pharmacies', (req, res) => {
+router.get('/', (req, res) => {
     Pharmacie.find((err, pharmacies) => {
         if (err) console.log("Error to get data : ", err);
         else res.send(pharmacies);
@@ -10,7 +10,7 @@ router.get('/pharmacies', (req, res) => {
 });
 
 // add new pharmacie
-router.post('/pharmacies', (req, res) => {
+router.post('/', (req, res) => {
     const newPharmacie = new Pharmacie({
         name_fr: req.body.nameFr,
         name_ar: req.body.nameAr,

@@ -3,7 +3,7 @@ const Medoc = require('../models/Medoc');
 const objectId = require('mongoose').Types.ObjectId;
 
 // get all medocs
-router.get('/medocs', (req, res) => {
+router.get('/', (req, res) => {
     Medoc.find((err, medocs) => {
         if (err) console.log("Error to get data : ", err);
         else res.send(medocs);
@@ -11,7 +11,7 @@ router.get('/medocs', (req, res) => {
 });
 
 // get one medoc by id
-router.get('/medocs/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     if (objectId.isValid(req.params.id)) {
         Medoc.findById(req.params.id, (err, medoc) => {
             if (err) console.log(err);
@@ -22,7 +22,7 @@ router.get('/medocs/:id', (req, res) => {
 });
 
 // update medoc by id
-router.put('/medocs/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     if (!objectId.isValid(req.params.id))
         return res.status(400).send("Error the id is not valid : " + req.params.id);
 
@@ -48,7 +48,7 @@ router.put('/medocs/:id', (req, res) => {
 });
 
 // delete medoc by
-router.delete('/medocs/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     if (!objectId.isValid(req.params.id))
         return res.status(400).send("Error the id is not valid : " + req.params.id);
 
