@@ -12,17 +12,17 @@ router.get('/', (req, res) => {
 // add new pharmacie
 router.post('/', (req, res) => {
     const newPharmacie = new Pharmacie({
-        name_fr: req.body.nameFr,
-        name_ar: req.body.nameAr,
-        adress_fr: req.body.adressFr,
-        adress_ar: req.body.adressAr,
+        name_fr: req.body.name_fr,
+        name_ar: req.body.name_ar,
+        adress_fr: req.body.adress_fr,
+        adress_ar: req.body.adress_ar,
         tel: req.body.tel,
         lati: req.body.lati,
         longt: req.body.longt,
-        wilaya: req.body.wilayaFr,
-        wilaya_ar: req.body.wilayaAr,
-        moughataa: req.body.moughataaFr,
-        moughataa_ar: req.body.moughataaAr
+        wilaya: req.body.wilaya,
+        wilaya_ar: req.body.wilaya_ar,
+        moughataa: req.body.moughataa,
+        moughataa_ar: req.body.moughataa_ar
     });
 
     newPharmacie.save((err, newPharmacie) => {
